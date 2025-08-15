@@ -1,0 +1,33 @@
+https://laravelplayground.com/#/
+
+
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function() {
+  return 'Сайн байна уу, Laravel!';
+});
+
+Route::get('/hello', function () {
+  return 'Сайн уу?';
+});
+
+Route::get('/hello/{name}', function($name){
+return "Сайн уу, $name";
+});
+
+Route::get('/play/{name}', function ($name){
+  return view('playground', ['name' => $name]);
+});
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Laravel Playground</title>
+</head>
+<body style="text-align:center; margin-top: 50px;">
+    <h1 style="color: darkBlue;">Сайн байна уу, {{ $name }}!</h1>
+    <p>Энэ бол Laravel</p>
+</body>
+</html>
