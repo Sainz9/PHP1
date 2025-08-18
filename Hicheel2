@@ -1,0 +1,27 @@
+<?php
+
+//Model
+class User {
+  public $name;
+
+  function __construct($name) {
+    $this->name = $name;
+  }
+
+  function introduce() {
+    return "Сайн уу, Намайг $this->name";
+  }
+}
+
+//Controller
+$Tsahiur = new User("Bilegttsahiur");
+
+//
+$message = $Tsahiur->introduce();
+?>
+<!DOCTYPE>
+<html>
+<body>
+     <h1><?php echo $message; ?> </h1>
+</body>
+</html>
