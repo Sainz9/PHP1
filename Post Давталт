@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
+</head>
+<body>
+    <header class="row header">
+        <h1>CRUD-DEMO</h1>
+        <nav>
+            <a href="#">Жагсаалт</a>
+            <a href="/posts/create">Шинэ пост</a>
+        </nav>
+    </header>
+    <h1>This is posts page</h1>
+   @forelse ($posts as $item)
+    <div class="card">
+        <h3>{{ $item->title }}</h3>
+        <div style="opacity: 0.7">{{ $item->created_at }}</div>
+        <div> {{$item->content}} </div>
+    </div>
+   @empty
+    <p>одоогоор пост алга</p>
+   @endforelse
+</body>
+</html>
