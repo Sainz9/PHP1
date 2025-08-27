@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
+</head>
+<body>
+
+    <header class="row header">
+        <h1>CRUD-DEMO</h1>
+        <nav>
+            <a href="/posts">Жагсаалт</a>
+            <a href="#">Шинэ пост</a>
+        </nav>
+    </header>
+    <h1>Edit post</h1>
+
+    <form action="{{route('post.update',['id'=> $post->id])}}" method="POST" class="card">
+        @csrf
+        @method('PUT')
+        <div class="field">
+            <label for="title">Гарчиг</label>
+            <input id="title" type="text" name="title" value="{{$post->title}}" required>
+        </div>
+        <div class="field">
+            <label for="content">Тайлбар</label>
+            <textarea id="content" name="content" rows="3">{{$post->content}}</textarea>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary" type="submit">
+              Засварлах
+            </button>
+        </div>
+
+    </form>
+
+</body>
+</html>
